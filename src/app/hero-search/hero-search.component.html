@@ -1,0 +1,16 @@
+<div id="search-component">
+  <h4><label for="search-box">Hero Search</label> <dirty-check></dirty-check></h4>
+  <input id="search-box" #searchInput (input)="search(searchInput.value)" />
+  <ul class="search-result">
+    <li
+      *ngFor="
+        let hero of heroes$ | async;
+        trackBy: trackHero
+      "
+    >
+      <a routerLink="/detail/{{ hero.id }}">
+        {{ hero.name }}
+      </a>
+    </li>
+  </ul>
+</div>
